@@ -9,7 +9,7 @@
 <body>
   <h1>Teste Mamp</h1>
   <?php 
-    phpinfo()
+ /*    phpinfo() */
   ?>
 </body>
 </html>
