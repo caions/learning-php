@@ -9,10 +9,14 @@
 </h1>
 
 <?=
-   "<h1><strong>Olá Mundo</strong></h1>"; "isso não será imprimido na tela"
-  ?>
-  <?=
-   "<h1><strong>Olá Mundo</strong></h1>"; "isso não será imprimido na tela"
-  ?>
+"<h1><strong>Olá Mundo</strong></h1>";
+"isso não será imprimido na tela"
+?>
 
-  <div><button><?= "Clique"?></button></div>
+<?php if(true): ?> 
+
+  <div><button><?= "Clique" ?></button></div>
+
+<?php endif ?> 
+
+<div><button><?= "Clique" ?></button></div>
