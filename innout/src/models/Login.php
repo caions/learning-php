@@ -1,21 +1,34 @@
 <?php
+class Login extends Model {
 
-loadModel('User');
+    public function validate() {
+        $errors = [];
 
+        if(!$this->email) {
+            $errors['email'] = 'E-mail é um campo obrigatório.';
+        }
 
-class Login extends Model{
+        if(!$this->password) {
+            $errors['password'] = 'Por favor, informe a senha.';
+        }
 
-  public function checkLogin(){
-    $user = User::getOne(['email'=> $this->email]);
-    if($user){
-      if($user->end_date){
-        throw new AppException('Usuário está desligado da empresa');
-      }
-
-      if(password_verify($this->password, $user->password)){
-        return $user;
-      }
+        if(count($errors) > 0) {
+            throw new ValidationException($errors);
+        }
     }
-    throw new AppException('Usuário e Senha inválidos');
-  }
+
+    public function checkLogin() {
+        $this->validate();
+        $user = User::getOne(['email' => $this->email]);
+        if($user) {
+            if($user->end_date) {
+                throw new AppException('Usuário está desligado da empresa.');
+            }
+
+            if(password_verify($this->password, $user->password)) {
+                return $user;
+            }
+        }
+        throw new AppException('Usuário e Senha inválidos.');
+    }
 }
