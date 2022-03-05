@@ -2,7 +2,7 @@
   <?php
   renderTitle(
     "Registrar Ponto",
-    "Mantenha seu ponto consistente!", 
+    "Mantenha seu ponto consistente!",
     "icofont-check-alt"
   );
   include(TEMPLATE_PATH . "/messages.php");
@@ -31,4 +31,15 @@
       </div>
     </div>
   </div>
+
+  <form class="mt-5" action="innout.php" method="post">
+    <div class="input-group no-border">
+      <input type="text" name="forcedTime" 
+      placeholder="Informe a horar para simular o batimento"
+      class="form-control">
+      <button class="btn btn-danger ml-3">
+        Simular Ponto
+      </button>
+    </div>
+  </form>
 </main>
