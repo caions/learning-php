@@ -1,6 +1,2 @@
 <?php
-
-session_start();
-requireValidSesstion();
-
-loadTemplateView('monthly_report');
+print_r($registries);
