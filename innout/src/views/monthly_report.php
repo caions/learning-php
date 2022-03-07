@@ -7,6 +7,14 @@
   )
   ?>
 
+  <form class="mb-4" action="#" method="post"></form>
+  <select name="period" class="form-control" placeholder="Selecione o periodo">
+    <?php
+      foreach($periods as $key => $month){
+        echo "<option value='{$key}'>{$month}</option>";
+      }
+    ?>
+  </select>
   <div>
     <table class="table table-bordered table-striped table-hover">
       <thead>
