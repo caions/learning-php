@@ -45,10 +45,14 @@ public function loadFromArray($arr, $sanitize = true) {
     }
   }
 
+  public function getValues(){
+    return $this->values;
+  }
+
   public static function getOne($filters = [], $columns = "*"){
     $class = get_called_class();
     $result = static::getResultSetFromSelect($filters, $columns);
-    return $result ? new $class($result->fetch_assoc()) : null;
+    return $result ? new $class($result->fetch_assoc(), false) : null;
   }
 
   public static function getResultSetFromSelect($filters = [], $columns = "*"){
